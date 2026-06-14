@@ -16,9 +16,8 @@ function createWindow() {
     autoHideMenuBar: true,
   });
 
-  win.loadFile(path.join(__dirname, 'src', 'index.html'));
+  win.loadFile(path.join(__dirname, 'index.html'));
 
-  // Apri link esterni nel browser di sistema
   win.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: 'deny' };
