@@ -16,10 +16,12 @@
     "directories": {
       "output": "dist"
     },
-    "files": [
-      "main.js",
-      "src/**/*"
-    ],
+  "files": [
+  "main.js",
+  "index.html",
+  "icon.png",
+  "icon.ico"
+],
     "win": {
       "target": [
         {
