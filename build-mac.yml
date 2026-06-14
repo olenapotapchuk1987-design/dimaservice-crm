@@ -1,0 +1,32 @@
+name: Build Mac DMG
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Permette di avviare manualmente
+
+jobs:
+  build-mac:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout codice
+        uses: actions/checkout@v4
+
+      - name: Installa Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installa dipendenze
+        run: npm install
+
+      - name: Build DMG per Mac
+        run: npm run build-mac
+
+      - name: Carica DMG come artefatto
+        uses: actions/upload-artifact@v4
+        with:
+          name: DimaService-CRM-Mac
+          path: dist/*.dmg
+          retention-days: 30
